@@ -1,2 +1,4 @@
 /venv
 .env
+__structure.txt
+/storage_db
