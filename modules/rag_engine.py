@@ -9,22 +9,21 @@ from llama_index.postprocessor.sbert_rerank import SentenceTransformerRerank
 
 from config import RERANK_MODEL_NAME
 from modules.ingestion import get_client, COLLECTION_NAME
-
+from config import RERANK_MODEL_NAME, DEVICE # 引入 DEVICE
 # 初始化 Reranker (单例模式)
 _reranker = None
 
 def get_reranker():
     global _reranker
     if _reranker is None:
-        print(f"📥 正在加载重排序模型 ({RERANK_MODEL_NAME})...首次运行需下载")
         try:
-            # 初始化
+            # 使用 config.py 中的 DEVICE 变量
             _reranker = SentenceTransformerRerank(
                 model=RERANK_MODEL_NAME,
                 top_n=5,
-                device="cpu" # 如果你有NVIDIA显卡改为 "cuda"
+                device=DEVICE 
             )
-            print("✅ Reranker 加载完成")
+            print(f"✅ Reranker 加载完成 (Device: {DEVICE})")
         except Exception as e:
             print(f"❌ Reranker 加载失败: {e}")
             return None

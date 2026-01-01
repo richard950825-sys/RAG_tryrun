@@ -9,7 +9,6 @@ llama-index-vector-stores-qdrant
 qdrant-client
 
 # --- 文档解析 (Docling) ---
-# 注意：Docling 依赖较重，会自动安装 PyTorch
 llama-index-readers-docling
 docling
 
@@ -17,8 +16,7 @@ docling
 llama-index-postprocessor-sbert-rerank
 sentence-transformers
 
-# --- PDF 处理与截图 (VisRAG 核心) ---
-# 你的代码使用了 import fitz，这对应 pymupdf 库
+# --- PDF 处理与截图 ---
 pymupdf
 pillow
 

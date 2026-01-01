@@ -2,3 +2,9 @@
 .env
 __structure.txt
 /storage_db
+.gitignore
+_pycache_
+corpus.db
+app.log
+/data
+/modules/_pycache_
